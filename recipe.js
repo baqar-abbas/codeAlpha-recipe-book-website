@@ -1,137 +1,119 @@
-/* eslint-disable */
 const recipeArr = [
-    {
-        id: 1,
-        name: 'Biryani',
-        description: 'A delicious rice dish',
-        ingredients: ['rice', 'chicken', 'spices', 'onions', 'tomatoes', 'yogurt'],
-        directions: ['Cook rice', 'Cook chicken', 'Mix together'],
-    },
-    {
-        id: 2,
-        name: 'Chicken Fried Rice',
-        description: 'A delicious rice dish',
-        ingredients: ['rice', 'chicken', 'spices', 'onions', 'tomatoes', 'yogurt'],
-        directions: ['Cook rice', 'Cook chicken', 'Mix together'],
-    },
-    {
-        id: 3,
-        name: 'Chicken Curry',
-        description: 'A delicious rice dish',
-        ingredients: ['rice', 'chicken', 'spices', 'onions', 'tomatoes', 'yogurt'],
-        directions: ['Cook rice', 'Cook chicken', 'Mix together'],
-    },
+  {
+    id: 1,
+    name: 'Biryani',
+    description: 'A delicious rice dish',
+    ingredients: ['rice', 'chicken', 'spices', 'onions', 'tomatoes', 'yogurt'],
+    directions: ['Cook rice', 'Cook chicken', 'Mix together'],
+  },
+  {
+    id: 2,
+    name: 'Chicken Fried Rice',
+    description: 'A delicious rice dish',
+    ingredients: ['rice', 'chicken', 'spices', 'onions', 'tomatoes', 'yogurt'],
+    directions: ['Cook rice', 'Cook chicken', 'Mix together'],
+  },
+  {
+    id: 3,
+    name: 'Chicken Curry',
+    description: 'A delicious rice dish',
+    ingredients: ['rice', 'chicken', 'spices', 'onions', 'tomatoes', 'yogurt'],
+    directions: ['Cook rice', 'Cook chicken', 'Mix together'],
+  },
 ];
 
-// const recipeSection = document.querySelector('.recipe-section');
-// const recipeDiv = document.createElement('div');
-// recipeDiv.classList.add('recipe');
-// recipeSection.appendChild(recipeDiv);
+function display() {
+  const recipeSection = document.querySelector('.recipe-section');
+  recipeSection.innerHTML = ''; // Clear the existing content
+  const recipeDiv = document.createElement('div');
+  recipeDiv.classList.add('recipe');
+  recipeSection.appendChild(recipeDiv);
 
-// const heading = document.createElement('h2');
-// heading.classList.add('recipe-heading');
-// heading.textContent = 'Recipes';
-// recipeDiv.appendChild(heading);
+  const heading = document.createElement('h2');
+  heading.classList.add('recipe-heading');
+  heading.textContent = 'Recipes';
+  recipeDiv.appendChild(heading);
 
-// function createRecipeItem(recipe) {};
+  const recipeListDiv = document.createElement('div');
+  recipeListDiv.classList.add('recipe-list');
+  recipeDiv.appendChild(recipeListDiv);
 
+  recipeArr.forEach((recipe, index) => {
+    const recipeItem = document.createElement('div');
+    recipeItem.classList.add('recipe-item');
+    recipeListDiv.appendChild(recipeItem);
 
-function display () {
-    const recipeSection = document.querySelector('.recipe-section');
-    recipeSection.innerHTML = ''; // Clear the existing content
-    const recipeDiv = document.createElement('div');
-    recipeDiv.classList.add('recipe');
-    recipeSection.appendChild(recipeDiv);
-    
-    const heading = document.createElement('h2');
-    heading.classList.add('recipe-heading');
-    heading.textContent = 'Recipes';
-    recipeDiv.appendChild(heading);
+    const recipeName = document.createElement('h3');
+    recipeName.classList.add('recipe-name');
+    recipeName.textContent = recipe.name;
+    recipeItem.appendChild(recipeName);
 
-const recipeListDiv = document.createElement('div');
-recipeListDiv.classList.add('recipe-list');
-recipeDiv.appendChild(recipeListDiv);
+    const recipeDescription = document.createElement('p');
+    recipeDescription.classList.add('recipe-description');
+    recipeDescription.textContent = recipe.description;
+    recipeItem.appendChild(recipeDescription);
 
-// recipeListDiv.innerHTML = ''; // Clear the existing recipes
+    const recipeIngredients = document.createElement('ul');
+    recipeIngredients.classList.add('recipe-ingredients');
+    recipeItem.appendChild(recipeIngredients);
 
-recipeArr.forEach((recipe, index) => {
-const recipeItem = document.createElement('div');
-recipeItem.classList.add('recipe-item');
-recipeListDiv.appendChild(recipeItem);
+    recipe.ingredients.forEach((ingredient) => {
+      const recipeIngredient = document.createElement('li');
+      recipeIngredient.classList.add('recipe-ingredient');
+      recipeIngredient.textContent = ingredient;
+      recipeIngredients.appendChild(recipeIngredient);
+    });
 
-const recipeName = document.createElement('h3');
-recipeName.classList.add('recipe-name');
-recipeName.textContent = recipe.name;
-recipeItem.appendChild(recipeName);
+    const recipeDirectionsHeading = document.createElement('h4');
+    recipeDirectionsHeading.classList.add('recipe-directions-heading');
+    recipeDirectionsHeading.textContent = 'Directions to Cook';
+    recipeItem.appendChild(recipeDirectionsHeading);
 
-const recipeDescription = document.createElement('p');
-recipeDescription.classList.add('recipe-description');
-recipeDescription.textContent = recipe.description;
-recipeItem.appendChild(recipeDescription);
+    const recipeDirections = document.createElement('ol');
+    recipeDirections.classList.add('recipe-directions');
+    recipeItem.appendChild(recipeDirections);
 
-const recipeIngredients = document.createElement('ul');
-recipeIngredients.classList.add('recipe-ingredients');
-recipeItem.appendChild(recipeIngredients);
+    recipe.directions.forEach((direction) => {
+      const recipeDirection = document.createElement('li');
+      recipeDirection.classList.add('recipe-direction');
+      recipeDirection.textContent = direction;
+      recipeDirections.appendChild(recipeDirection);
+    });
 
-console.log(index);
-
-recipe.ingredients.forEach((ingredient) => {
-    const recipeIngredient = document.createElement('li');
-    recipeIngredient.classList.add('recipe-ingredient');
-    recipeIngredient.textContent = ingredient;
-    recipeIngredients.appendChild(recipeIngredient);
-});
-
-const recipeDirectionsHeading = document.createElement('h4');
-recipeDirectionsHeading.classList.add('recipe-directions-heading');
-recipeDirectionsHeading.textContent = 'Directions to Cook';
-recipeItem.appendChild(recipeDirectionsHeading);
-
-const recipeDirections = document.createElement('ol');
-recipeDirections.classList.add('recipe-directions');
-recipeItem.appendChild(recipeDirections);
-
-recipe.directions.forEach((direction) => {
-    const recipeDirection = document.createElement('li');
-    recipeDirection.classList.add('recipe-direction');
-    recipeDirection.textContent = direction;
-    recipeDirections.appendChild(recipeDirection);
-});
-
-const deleteButton = document.createElement('button');
-deleteButton.classList.add('delete-button');
-deleteButton.textContent = 'Delete Recipe';
-deleteButton.addEventListener('click', () => deleteRecipe(index));
-// deleteButton.addEventListener('click', deleteRecipe(index));
-recipeItem.appendChild(deleteButton);
-});
-};
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add('delete-button');
+    deleteButton.textContent = 'Delete Recipe';
+    /*eslint-disable */
+    deleteButton.addEventListener('click', () => deleteRecipe(index));
+    /* eslint-enable */
+    recipeItem.appendChild(deleteButton);
+  });
+}
 
 display();
 
-function addRecipe() {
-    const recipeForm = document.getElementById('recipe-form');
-
-    const newRecipe = {
-        id: recipeArr.length + 1,
-        name: recipeForm.querySelector('#recipe-name').value,
-        description: recipeForm.querySelector('#recipe-description').value,
-        ingredients: recipeForm.querySelector('#recipe-ingredients').value.split(',').map(item => item.trim()),
-        directions: recipeForm.querySelector('#recipe-directions').value.split('\n').map(item => item.trim()),
-    };
-
-    recipeArr.push(newRecipe);
-
-    // Clear form fields
-    recipeForm.reset();
-
-    // Update the displayed recipes
-    display();
-}
-
-
 function deleteRecipe(recipeIndex) {
-    console.log(recipeIndex);
-    recipeArr.splice(recipeIndex, 1);
-    display();
+  recipeArr.splice(recipeIndex, 1);
+  display();
+}
+/*eslint-disable */
+function addRecipe() {
+/* eslint-enable */
+  const recipeForm = document.getElementById('recipe-form');
+
+  const newRecipe = {
+    id: recipeArr.length + 1,
+    name: recipeForm.querySelector('#recipe-name').value,
+    description: recipeForm.querySelector('#recipe-description').value,
+    ingredients: recipeForm.querySelector('#recipe-ingredients').value.split(',').map((item) => item.trim()),
+    directions: recipeForm.querySelector('#recipe-directions').value.split('\n').map((item) => item.trim()),
+  };
+
+  recipeArr.push(newRecipe);
+
+  // Clear form fields
+  recipeForm.reset();
+
+  // Update the displayed recipes
+  display();
 }

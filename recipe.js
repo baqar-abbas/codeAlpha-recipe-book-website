@@ -23,21 +23,38 @@ const recipeArr = [
     },
 ];
 
-const recipeSection = document.querySelector('.recipe-section');
-const recipeDiv = document.createElement('div');
-recipeDiv.classList.add('recipe');
-recipeSection.appendChild(recipeDiv);
+// const recipeSection = document.querySelector('.recipe-section');
+// const recipeDiv = document.createElement('div');
+// recipeDiv.classList.add('recipe');
+// recipeSection.appendChild(recipeDiv);
 
-const heading = document.createElement('h2');
-heading.classList.add('recipe-heading');
-heading.textContent = 'Recipes';
-recipeDiv.appendChild(heading);
+// const heading = document.createElement('h2');
+// heading.classList.add('recipe-heading');
+// heading.textContent = 'Recipes';
+// recipeDiv.appendChild(heading);
+
+// function createRecipeItem(recipe) {};
+
+
+function display () {
+    const recipeSection = document.querySelector('.recipe-section');
+    recipeSection.innerHTML = ''; // Clear the existing content
+    const recipeDiv = document.createElement('div');
+    recipeDiv.classList.add('recipe');
+    recipeSection.appendChild(recipeDiv);
+    
+    const heading = document.createElement('h2');
+    heading.classList.add('recipe-heading');
+    heading.textContent = 'Recipes';
+    recipeDiv.appendChild(heading);
 
 const recipeListDiv = document.createElement('div');
 recipeListDiv.classList.add('recipe-list');
 recipeDiv.appendChild(recipeListDiv);
 
-recipeArr.forEach((recipe) => {
+// recipeListDiv.innerHTML = ''; // Clear the existing recipes
+
+recipeArr.forEach((recipe, index) => {
 const recipeItem = document.createElement('div');
 recipeItem.classList.add('recipe-item');
 recipeListDiv.appendChild(recipeItem);
@@ -55,6 +72,8 @@ recipeItem.appendChild(recipeDescription);
 const recipeIngredients = document.createElement('ul');
 recipeIngredients.classList.add('recipe-ingredients');
 recipeItem.appendChild(recipeIngredients);
+
+console.log(index);
 
 recipe.ingredients.forEach((ingredient) => {
     const recipeIngredient = document.createElement('li');
@@ -82,5 +101,37 @@ recipe.directions.forEach((direction) => {
 const deleteButton = document.createElement('button');
 deleteButton.classList.add('delete-button');
 deleteButton.textContent = 'Delete Recipe';
+deleteButton.addEventListener('click', () => deleteRecipe(index));
+// deleteButton.addEventListener('click', deleteRecipe(index));
 recipeItem.appendChild(deleteButton);
 });
+};
+
+display();
+
+function addRecipe() {
+    const recipeForm = document.getElementById('recipe-form');
+
+    const newRecipe = {
+        id: recipeArr.length + 1,
+        name: recipeForm.querySelector('#recipe-name').value,
+        description: recipeForm.querySelector('#recipe-description').value,
+        ingredients: recipeForm.querySelector('#recipe-ingredients').value.split(',').map(item => item.trim()),
+        directions: recipeForm.querySelector('#recipe-directions').value.split('\n').map(item => item.trim()),
+    };
+
+    recipeArr.push(newRecipe);
+
+    // Clear form fields
+    recipeForm.reset();
+
+    // Update the displayed recipes
+    display();
+}
+
+
+function deleteRecipe(recipeIndex) {
+    console.log(recipeIndex);
+    recipeArr.splice(recipeIndex, 1);
+    display();
+}

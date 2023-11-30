@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Recipe-Book-Website</title>
 </head>
 <body>
     <header>
@@ -13,7 +13,7 @@
         <ul class="desktop-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#recipe-display">Recipes</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="#add-recipe">Add Recipe</a></li>
             <li><a href="#">Contact Us</a></li>
         </ul>
     </div>
@@ -25,6 +25,24 @@
         <p class="main-para"><b>Home to your favourite recipes</b></p>
     </section>
     <section id="recipe-display" class="recipe-section"></section>
+    <section id="add-recipe" class="recipe-add">
+        <h2 class="add-recipe-heading">Add Recipe</h2>
+        <form id="recipe-form">
+            <label for="recipe-name">Recipe Name:</label>
+            <input type="text" id="recipe-name" required>
+    
+            <label for="recipe-description">Description:</label>
+            <textarea id="recipe-description" required></textarea>
+    
+            <label for="recipe-ingredients">Ingredients (comma-separated):</label>
+            <input type="text" id="recipe-ingredients" required>
+    
+            <label for="recipe-directions">Directions (one per line):</label>
+            <textarea id="recipe-directions" required></textarea>
+    
+            <button type="button" onclick="addRecipe()">Add Recipe</button>
+        </form>
+    </section>    
 </main>
     <h1>Hello world</h1>
     <script src="recipe.js"></script>

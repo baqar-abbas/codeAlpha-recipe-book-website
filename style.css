@@ -209,6 +209,17 @@ button:hover {
     background-color: #45a049;
 }
 
+footer {
+    background-color:#222020;
+    height: 8vh;
+}
+
+footer p {
+    color: #fff;
+    text-align: center;
+    padding-top: 10px;
+}
+
 
 /* Mobile view css rule set */
 

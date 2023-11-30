@@ -82,6 +82,80 @@ body {
     padding-top: 20px;
 }
 
+.recipe-heading {
+    text-align: center;
+    color: #222020;
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.recipe-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-item {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    /* justify-content: space-between; */
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-name {
+    padding: 20px;
+    margin: 0 20px;
+    color: #222020;
+}
+
+.recipe-description {
+    padding: 20px;
+    margin: 0 20px;
+    color: #222020;
+}
+
+.recipe-ingredients {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.recipe-ingredient {
+ padding: 0 10px;
+ margin: 0 10px;
+ color: #222020;
+}
+
+.recipe-directions-heading {
+    padding: 0 20px;
+    margin: 0 20px;
+    color: #222020;
+}
+
+.delete-button {
+    background-color: #222020;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    margin: 0 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+
+.delete-button:hover {
+    background-color: #fff;
+    color: #222020;
+    border: 1px solid #222020;
+}
+
 /* Mobile view css rule set */
 
 /* @media screen and (max-width: 768px) {

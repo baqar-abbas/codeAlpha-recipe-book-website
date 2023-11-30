@@ -7,8 +7,20 @@ const recipeArr = [
         ingredients: ['rice', 'chicken', 'spices', 'onions', 'tomatoes', 'yogurt'],
         directions: ['Cook rice', 'Cook chicken', 'Mix together'],
     },
-    {},
-    {},
+    {
+        id: 2,
+        name: 'Chicken Fried Rice',
+        description: 'A delicious rice dish',
+        ingredients: ['rice', 'chicken', 'spices', 'onions', 'tomatoes', 'yogurt'],
+        directions: ['Cook rice', 'Cook chicken', 'Mix together'],
+    },
+    {
+        id: 3,
+        name: 'Chicken Curry',
+        description: 'A delicious rice dish',
+        ingredients: ['rice', 'chicken', 'spices', 'onions', 'tomatoes', 'yogurt'],
+        directions: ['Cook rice', 'Cook chicken', 'Mix together'],
+    },
 ];
 
 const recipeSection = document.querySelector('.recipe-section');
@@ -21,6 +33,54 @@ heading.classList.add('recipe-heading');
 heading.textContent = 'Recipes';
 recipeDiv.appendChild(heading);
 
+const recipeListDiv = document.createElement('div');
+recipeListDiv.classList.add('recipe-list');
+recipeDiv.appendChild(recipeListDiv);
+
 recipeArr.forEach((recipe) => {
-    
+const recipeItem = document.createElement('div');
+recipeItem.classList.add('recipe-item');
+recipeListDiv.appendChild(recipeItem);
+
+const recipeName = document.createElement('h3');
+recipeName.classList.add('recipe-name');
+recipeName.textContent = recipe.name;
+recipeItem.appendChild(recipeName);
+
+const recipeDescription = document.createElement('p');
+recipeDescription.classList.add('recipe-description');
+recipeDescription.textContent = recipe.description;
+recipeItem.appendChild(recipeDescription);
+
+const recipeIngredients = document.createElement('ul');
+recipeIngredients.classList.add('recipe-ingredients');
+recipeItem.appendChild(recipeIngredients);
+
+recipe.ingredients.forEach((ingredient) => {
+    const recipeIngredient = document.createElement('li');
+    recipeIngredient.classList.add('recipe-ingredient');
+    recipeIngredient.textContent = ingredient;
+    recipeIngredients.appendChild(recipeIngredient);
+});
+
+const recipeDirectionsHeading = document.createElement('h4');
+recipeDirectionsHeading.classList.add('recipe-directions-heading');
+recipeDirectionsHeading.textContent = 'Directions to Cook';
+recipeItem.appendChild(recipeDirectionsHeading);
+
+const recipeDirections = document.createElement('ol');
+recipeDirections.classList.add('recipe-directions');
+recipeItem.appendChild(recipeDirections);
+
+recipe.directions.forEach((direction) => {
+    const recipeDirection = document.createElement('li');
+    recipeDirection.classList.add('recipe-direction');
+    recipeDirection.textContent = direction;
+    recipeDirections.appendChild(recipeDirection);
+});
+
+const deleteButton = document.createElement('button');
+deleteButton.classList.add('delete-button');
+deleteButton.textContent = 'Delete Recipe';
+recipeItem.appendChild(deleteButton);
 });

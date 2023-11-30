@@ -100,6 +100,12 @@ function deleteRecipe(recipeIndex) {
 function addRecipe() {
 /* eslint-enable */
   const recipeForm = document.getElementById('recipe-form');
+  if (!recipeForm.checkValidity()) {
+    /* eslint-disable */
+    alert('Please fill all the fields');
+    /* eslint-enable */
+    return;
+  }
 
   const newRecipe = {
     id: recipeArr.length + 1,

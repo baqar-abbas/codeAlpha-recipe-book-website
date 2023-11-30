@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Recipe-Book-Website</title>
+</head>
+<body>
+    <header>
+    <nav>
+        <div class="nav-menu">
+        <ul class="desktop-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#recipe-display">Recipes</a></li>
+            <li><a href="#add-recipe">Add Recipe</a></li>
+            <li><a href="#recipe-display">Delete Recipe</a></li>
+        </ul>
+    </div>
+    </nav>
+    </header>
+    <main>
+    <section id="home" class="headline">
+        <h1 class="main-heading">Recipe Book Website</h1>
+        <p class="main-para"><b>Home to your favourite recipes</b></p>
+    </section>
+    <section id="recipe-display" class="recipe-section"></section>
+    <section id="add-recipe" class="recipe-add">
+        <h2 class="add-recipe-heading">Add Recipe</h2>
+        <form id="recipe-form">
+            <label for="recipe-name">Recipe Name:</label>
+            <input type="text" id="recipe-name" required>
+    
+            <label for="recipe-description">Description:</label>
+            <textarea id="recipe-description" required></textarea>
+    
+            <label for="recipe-ingredients">Ingredients (comma-separated):</label>
+            <input type="text" id="recipe-ingredients" required>
+    
+            <label for="recipe-directions">Directions (one per line):</label>
+            <textarea id="recipe-directions" required></textarea>
+    
+            <button type="button" onclick="addRecipe()">Add Recipe</button>
+        </form>
+    </section>    
+</main>
+<footer>
+    <p class="footer-para">Made with ❤️ by Baqar Abbas. &copy; All rights reserved by Baqar Abbas </p>
+</footer>
+<script src="recipe.js"></script>
+</body>
+</html>
